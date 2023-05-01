@@ -1,0 +1,23 @@
+[project]
+name = "linkta"
+version = "0.0.1"
+description = "A web application to put all your links in a single page"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Biswarup Murmu", email = "biswarupmurmu@proton.me"}]
+classifiers = [
+    "Framework :: Flask",
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+    "Flask",
+    'Flask-SQLAlchemy',
+]
+
+[project.urls]
+repository = "https://github.com/biswarupmurmu/Linkta"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
