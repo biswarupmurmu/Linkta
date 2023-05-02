@@ -1,5 +1,74 @@
+:root {
+    --border-radius: 0.5rem;
+    --border-normal: solid 0.05rem var(--text-color);
+    --border-accent: solid 0.05rem var(--text-color);
+
+    --accent-color: rgb(255, 238, 0);
+    --text-color: black;
+    --body-background-color: white;
+}
+
+[theme = 'dark'] {
+    --dark-accent-color: rgb(38, 14, 70);
+    --dark-text-color: white;
+    --dark-body-background-color: rgb(0, 0, 0);
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-body-background-color, var(--body-background-color));
+    color: var(--dark-text-color, var(--text-color));
+}
+
+.center_text {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    width: min(60rem, 100%);
+    margin: 1rem;
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border: var(--border-normal);
+    border-radius: var(--border-radius);
+}
+
+nav:hover {
+    background-color: var(--dark-accent-color, var(--accent-color));
+}
+
+nav li {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.2rem;
+}
+
+nav a {
+    color: var(--dark-text-color, var(--text-color));
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+nav a:hover {
+    background-color: var(--dark-text-color, var(--text-color));
+    color: var(--dark-accent-color, var(--accent-color));
 }
