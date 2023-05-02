@@ -47,7 +47,6 @@ pip install -e .
 ## Run:
 
 ```
-flask --app linkta init-db
 flask --app linkta run --debug
 ```
 
