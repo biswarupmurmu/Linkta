@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    {% include "includes/alert.html"%}
     {% include "includes/nav.html"%}
     {% block content %} {% endblock %}
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
