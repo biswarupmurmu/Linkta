@@ -12,7 +12,9 @@ def create_app():
     app.config.from_pyfile('config.py', silent=True)
 
     from .views import views
+    from .auth import auth
     app.register_blueprint(views, url_prefix="/")
+    app.register_blueprint(auth, url_prefix="/")
 
     db.init_app(app)
     with app.app_context():
