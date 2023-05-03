@@ -23,12 +23,16 @@ def signup():
 
         if email_exists:
             flash("Email already in use", category="error")
+            return redirect(request.url)
         elif username_exists:
             flash("Username already taken", category="error")
+            return redirect(request.url)
         elif password1 != password2:
             flash("Passwords do not match", category="error")
+            return redirect(request.url)
         elif len(password1) <= 6:
             flash("Password must be more than six characters", category="error")
+            return redirect(request.url)
         else:
             user = User(email = email, username = username, fname = fname, lname = lname, password = generate_password_hash(password1))
             db.session.add(user)
@@ -53,6 +57,7 @@ def login():
         if user:
             if not check_password_hash(user.password, password):
                 flash("Incorrect password",category="error")
+                return redirect(request.url)
             else:
                 session.clear()
                 session['user_id'] = user.id
@@ -60,6 +65,7 @@ def login():
                 return redirect(url_for("views.home"))
         else:
             flash("Invalid username or email", category="error")
+            return redirect(request.url)
 
     return render_template("forms/login.html")
 
