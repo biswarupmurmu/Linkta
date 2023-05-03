@@ -80,3 +80,10 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
+
+# logout
+@auth.route("/logout")
+@login_required
+def logout():
+    session.clear()
+    return redirect(url_for("views.home"))

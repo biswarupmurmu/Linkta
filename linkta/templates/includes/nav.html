@@ -7,7 +7,7 @@
         <ul>
             {% if g.user %}
             <li><a href="#">Edit Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
             {% else %}
             <li><a href="{{url_for('auth.signup')}}">Signup</a></li>
             <li><a href="{{url_for('auth.login')}}">Login</a></li>
