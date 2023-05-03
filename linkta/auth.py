@@ -12,7 +12,7 @@ auth = Blueprint("auth",__name__)
 def signup():
     if request.method == "POST":
         email = request.form.get("email")
-        username = request.form.get("username")
+        username = request.form.get("username").lower()
         fname = request.form.get("fname")
         lname = request.form.get("lname")
         password1 = request.form.get("password1")
