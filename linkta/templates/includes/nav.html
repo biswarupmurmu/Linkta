@@ -5,10 +5,13 @@
             <li><a href="{{url_for('views.home')}}">Logo</a></li>
         </ul>
         <ul>
+            {% if g.user %}
+            <li><a href="#">Edit Profile</a></li>
+            <li><a href="#">Logout</a></li>
+            {% else %}
             <li><a href="{{url_for('auth.signup')}}">Signup</a></li>
             <li><a href="{{url_for('auth.login')}}">Login</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            {% endif %}
             <li><a href="#">Theme</a></li>
         </ul>
     </nav>
