@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title%}{{user.fname}} {{user.lname}}{% endblock %}
+
+{% block content %}
+<p class="center_text">Greetings from <strong>{{user.fname}} {{user.lname}}</strong></p>
+<p class="center_text">Email : {{user.email}}</p>
+<p class="center_text">Username : {{user.username}}</p>
+{% endblock %}
