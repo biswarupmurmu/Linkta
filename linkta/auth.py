@@ -42,10 +42,12 @@ def signup():
 def login():
     if request.method == "POST":
 
-        email = request.form.get("email")
+        emailorusername = request.form.get("emailorusername").lower()
         password = request.form.get("password")
 
-        user =  User.query.filter_by(email=email).first()
+        user =  User.query.filter_by(username = emailorusername).first()
+        if not user:
+            user =  User.query.filter_by(email = emailorusername).first()
 
         if user:
             if not check_password_hash(user.password, password):
@@ -56,7 +58,7 @@ def login():
                 flash(f"You are logged in as {user.username} successfully", category="success")
                 return redirect(url_for("views.home"))
         else:
-            flash("No account exixts for this email address", category="error")
+            flash("Invalid username or email", category="error")
 
     return render_template("forms/login.html")
 
