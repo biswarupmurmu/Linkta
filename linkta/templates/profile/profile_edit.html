@@ -19,8 +19,11 @@
             <label for="lname">Last name</label>
             <input type="text" name="lname" id="lname" placeholder="Enter last name" value="{{user.lname}}">
 
-            <label for="bio">Bio</label>
-            <textarea name="bio" id="bio" rows="5">{{user.bio}}</textarea>
+            <label for="whoami">Who am I</label>
+            <input type="text" name="whoami" id="whoami" placeholder="What you do" value="{{user.whoami}}">
+
+            <label for="about">About</label>
+            <textarea name="about" id="about" rows="5" placeholder="Write something">{{user.about}}</textarea>
 
             <label for="public_view">Show profile</label>
             {% if user.public_view%}

@@ -33,7 +33,8 @@ def profile_edit():
         new_username = request.form.get("username").lower()
         new_fname = request.form.get("fname")
         new_lname = request.form.get("lname")
-        new_bio = request.form.get("bio")
+        new_about = request.form.get("about")
+        new_whoami = request.form.get("whoami")
         public_view = request.form.get("public_view")
         if public_view:
             public_view = True
@@ -51,8 +52,9 @@ def profile_edit():
             g.user.username = new_username
             g.user.fname = new_fname
             g.user.lname = new_lname
-            g.user.bio = new_bio
+            g.user.about = new_about
             g.user.public_view = public_view
+            g.user.whoami = new_whoami
             db.session.commit()
             flash("Account updated successfully", category="success")
 
