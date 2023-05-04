@@ -3,7 +3,11 @@
 {% block title%}{{user.fname}} {{user.lname}}{% endblock %}
 
 {% block content %}
+<img src="{{url_for('static', filename = 'images/default_profile_image/default_profile_picture.png')}}" alt="" srcset="">
 <p class="center_text">Greetings from <strong>{{user.fname}} {{user.lname}}</strong></p>
+{% if user.bio | length > 0 %}
+<p class="center_text">Bio : {{user.bio}}</p>
+{% endif %}
 <p class="center_text">Email : {{user.email}}</p>
 <p class="center_text">Username : {{user.username}}</p>
 {% endblock %}
