@@ -57,5 +57,6 @@ def profile_edit():
             g.user.whoami = new_whoami
             db.session.commit()
             flash("Account updated successfully", category="success")
+            return redirect(request.url)
 
     return render_template("profile/profile_edit.html", user = g.user)
