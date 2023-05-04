@@ -18,7 +18,10 @@ def profile_public(username):
     username = username.lower()
     user =  User.query.filter_by(username=username).first()
     if user:
-        return render_template("profile/profile_public.html", user = user)
+        if user.public_view:
+            return render_template("profile/profile_public.html", user = user)
+        else:
+            return f"<p>No user named <strong>{username}</strong></p>"
     else:
         return f"<p>No user named <strong>{username}</strong></p>"
     
