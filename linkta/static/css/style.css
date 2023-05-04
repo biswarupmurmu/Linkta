@@ -158,6 +158,15 @@ form p a {
     text-decoration: underline;
 }
 
+form textarea {
+    outline: none;
+    padding: 0.5rem;
+    border: var(--dark-border-normal, var(--border-normal));
+    border-radius: var(--border-radius);
+    background-color: var(--dark-input-background-color, var(--input-background-color));
+    color: var(--dark-input-text-color, var(--input-text-color));
+}
+
 @media (max-width:50rem) {
     form div {
         grid-template-columns: auto;
