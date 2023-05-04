@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title%}{{user.fname}} {{user.lname}} | edit{% endblock %}
+
+{% block content %}
+<h2 class="center_text">Edit profile</h2>
+<div class="center">
+    <form action="" method="POST">
+        <div>
+            <label for="contact_email">Contact email</label>
+            <input type="contact_email" name="contact_email" id="contact_email" placeholder="Enter your email" value="{{user.email}}" required>
+
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter username" value="{{user.username}}" required>
+
+            <label for="fname">First name</label>
+            <input type="text" name="fname" id="fname" placeholder="Enter first name" value="{{user.fname}}" required>
+
+            <label for="lname">Last name</label>
+            <input type="text" name="lname" id="lname" placeholder="Enter last name" value="{{user.lname}}">
+
+            <label for="bio">Bio</label>
+            <textarea name="bio" id="bio" rows="5">{{user.bio}}</textarea>
+
+            <label for="public_view">Show profile</label>
+            {% if user.public_view%}
+            <input type="checkbox" name="public_view" id="public_view" value= 'True' checked>
+            {% else %}
+            <input type="checkbox" name="public_view" id="public_view" value= 'True'>
+            {% endif %}
+        </div>
+        <div>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
