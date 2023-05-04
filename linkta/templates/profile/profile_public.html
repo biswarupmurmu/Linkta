@@ -3,11 +3,33 @@
 {% block title%}{{user.fname}} {{user.lname}}{% endblock %}
 
 {% block content %}
-<img src="{{url_for('static', filename = 'images/default_profile_image/default_profile_picture.png')}}" alt="" srcset="">
-<p class="center_text">Greetings from <strong>{{user.fname}} {{user.lname}}</strong></p>
-{% if user.bio | length > 0 %}
-<p class="center_text">Bio : {{user.bio}}</p>
-{% endif %}
-<p class="center_text">Email : {{user.email}}</p>
-<p class="center_text">Username : {{user.username}}</p>
+<div class="padding1">
+    <div class="center">
+        <div class="profile">
+            <div class="profile_images">
+                <div class="cover_image">
+                    <img src="{{url_for('static', filename = 'images/default_cover_image/default_cover_picture.png')}}" alt="Cover picture" srcset="">
+                </div>
+                <div class="center profile_picture">
+                    <img src="{{url_for('static', filename = 'images/default_profile_image/default_profile_picture.png')}}" alt="Profile picture">
+                </div>
+            </div>
+            <h2 class="center_text">{{user.fname}} {{user.lname}}</h2>
+            {% if user.whoami | length > 0 %}
+            <p class="center_text"><strong>{{user.whoami}}</strong></p>
+            {% endif %}
+            <br>
+            {% if user.about | length > 0 %}
+            <div class="center">
+                <div class="about">
+                    <h4>About:</h4>
+                    <p>{{user.about}}</p>
+                </div>
+            </div>
+            {% endif %}
+            <p class="center_text">Email : {{user.email}}</p>
+            <p class="center_text">Username : {{user.username}}</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -49,6 +49,10 @@ body {
     justify-content: center;
 }
 
+.padding1 {
+    padding: 1rem;
+}
+
 nav {
     width: min(60rem, 100%);
     margin: 1rem;
@@ -171,4 +175,66 @@ form textarea {
     form div {
         grid-template-columns: auto;
     }
+}
+
+.profile {
+    width: min(100%, 60rem);
+    border: var(--dark-border-normal, var(--border-normal));
+    border-radius: var(--border-radius);
+}
+
+.profile_images {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2.5;
+    margin-bottom: 0.5rem;
+}
+
+.profile .cover_image {
+    width: 100%;
+    aspect-ratio: 4;
+    display: flex;
+    background-color: gray;
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+}
+
+.profile .cover_image img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+.profile .profile_picture {
+    width: min(30%, 15rem);
+    aspect-ratio: 1;
+    background-color: gray;
+    position: absolute;
+    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.profile .profile_picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+.profile  .about {
+    width: min(100%, 40rem);
+    padding: 1rem;
+    padding-top: 0;
+    text-align: justify;
+}
+
+.profile .about p {
+    padding: 0.25rem;
+    text-indent: 1rem;
 }
