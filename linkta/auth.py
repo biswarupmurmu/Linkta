@@ -10,6 +10,8 @@ auth = Blueprint("auth",__name__)
 
 @auth.route("/signup", methods=["GET", "POST"])
 def signup():
+    if g.user:
+        return redirect(url_for("views.home"))
     if request.method == "POST":
         email = request.form.get("email").lower()
         username = request.form.get("username").lower()
@@ -45,6 +47,8 @@ def signup():
 # login
 @auth.route("/login", methods = ["GET", "POST"])
 def login():
+    if g.user:
+        return redirect(url_for("views.home"))
     if request.method == "POST":
 
         emailorusername = request.form.get("emailorusername").lower()
