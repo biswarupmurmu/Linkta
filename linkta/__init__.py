@@ -5,7 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 UPLOAD_FOLDER = os.path.join('linkta/static', 'user_uploads')
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+# allowed file extensions(upload)
+FILE_EXTENSIONS = {
+    'image' : ['png', 'jpg', 'jpeg']
+}
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)

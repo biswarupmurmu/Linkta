@@ -5,7 +5,7 @@
 {% block content %}
 <h2 class="center_text">Edit profile</h2>
 <div class="center">
-    <form action="" method="POST">
+    <form action="" method="POST" enctype=multipart/form-data>
         <div>
             <label for="contact_email">Contact email</label>
             <input type="contact_email" name="contact_email" id="contact_email" placeholder="Enter your email" value="{{user.email}}" required>
@@ -25,16 +25,24 @@
             <label for="about">About</label>
             <textarea name="about" id="about" rows="5" placeholder="Write something">{{user.about}}</textarea>
 
-            <label for="public_view">Show profile</label>
             {% if user.public_view%}
+            <label for="public_view">Show profile</label>
             <input type="checkbox" name="public_view" id="public_view" value= 'True' checked>
             {% else %}
+            <label for="public_view">Show profile</label>
             <input type="checkbox" name="public_view" id="public_view" value= 'True'>
             {% endif %}
+
+            <label for="profile_picture">New profile picture</label>
+            <input type=file name="profile_picture">
+
+            <label for="cover_picture">New cover picture</label>
+            <input type=file name="cover_picture">
         </div>
         <div>
-            <button type="submit">Update</button>
+            <button type="submit" value="Upload">Update</button>
         </div>
     </form>
 </div>
+<br><br><br><br>
 {% endblock %}
