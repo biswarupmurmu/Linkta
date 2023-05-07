@@ -6,8 +6,8 @@
     --input-text-color: black;
 
     --border-radius: 0.5rem;
-    --border-normal: solid 0.05rem var(--text-color);
-    --border-accent: solid 0.05rem var(--accent-color);
+    --border-normal: solid 0.01rem var(--text-color);
+    --border-accent: solid 0.01rem var(--accent-color);
 }
 
 [theme = 'dark'] {
@@ -17,8 +17,8 @@
     --dark-input-background-color: rgb(0, 0, 0);
     --dark-input-text-color: rgb(255, 255, 255);
 
-    --dark-border-normal: solid 0.05rem var(--dark-text-color);
-    --dark-border-accent: solid 0.05rem var(--dark-accent-color);
+    --dark-border-normal: solid 0.01rem var(--dark-text-color);
+    --dark-border-accent: solid 0.01rem var(--dark-accent-color);
 }
 
 * {
@@ -100,17 +100,37 @@ button {
     border-radius: var(--border-radius);
 }
 
+/* ----------- FORM ----------- */
+
 form {
     width: min(100%, 30rem);
     padding: 1rem;
+    padding-top: 0;
 }
 
-form div {
+form > div:first-of-type {
     padding: 1rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: auto 1fr;
     align-items: center;
+}
+
+form > div:first-of-type h4 {
+    grid-column: span 2;
+    padding: 0.25rem;
+    border: solid var(--dark-text-color, var(--text-color)) 0.01rem;
+    border-top: none;
+    border-right: none;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+form > div:first-of-type > div {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap:2rem;
 }
 
 form input {
@@ -122,46 +142,6 @@ form input {
     color: var(--dark-input-text-color, var(--input-text-color));
 }
 
-form span {
-    display: flex;
-    align-items: center;
-    border: var(--dark-border-normal, var(--border-normal));
-    border-radius: var(--border-radius);
-    padding-right: 0.5rem;
-    background-color: var(--dark-input-background-color, var(--input-background-color));
-}
-
-form span input:first-child {
-    flex-grow: 1;
-    border: none;
-}
-
-form span input[type=checkbox]{
-    display: none;
-}
-
-form span label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-form div:last-child {
-    padding: 0;
-    justify-content: center;
-    grid-template-columns: auto;
-}
-
-form p {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-form p a {
-    text-decoration: underline;
-}
-
 form textarea {
     outline: none;
     padding: 0.5rem;
@@ -171,11 +151,54 @@ form textarea {
     color: var(--dark-input-text-color, var(--input-text-color));
 }
 
+/* ----------- PASSWORD VISIBILITY ----------- */
+
+form > div:first-of-type > span {
+    display: flex;
+    align-items: center;
+    border: var(--dark-border-normal, var(--border-normal));
+    border-radius: var(--border-radius);
+    padding-right: 0.5rem;
+    background-color: var(--dark-input-background-color, var(--input-background-color));
+}
+
+form > div:first-of-type > span > input {
+    width: 100%;
+}
+
+form > div:first-of-type > span input:first-child {
+    flex-grow: 1;
+    border: none;
+}
+
+form > div:first-of-type > span input[type=checkbox]{
+    display: none;
+}
+
+form > div:first-of-type > span label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----------- END PASSWORD VISIBILITY ----------- */
+
 @media (max-width:50rem) {
-    form div {
-        grid-template-columns: auto;
+
+    form > div:first-of-type > label + input {
+        grid-column: span 2;
+    }
+
+    form > div:first-of-type > label + textarea {
+        grid-column: span 2;
+    }
+
+    form > div:first-of-type label + span {
+        grid-column: span 2;
     }
 }
+
+/* ----------- END FORM ----------- */
 
 .profile {
     width: min(100%, 60rem);
