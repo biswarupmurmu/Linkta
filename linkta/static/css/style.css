@@ -4,10 +4,23 @@
     --body-background-color: white;
     --input-background-color: white;
     --input-text-color: black;
-
+ 
     --border-radius: 0.5rem;
     --border-normal: solid 0.01rem var(--text-color);
     --border-accent: solid 0.01rem var(--accent-color);
+
+    /* Profile_public */
+    --profile-hue: 156;
+    --profile-hue-hover: 56;
+
+    --profile-background: hsl(var(--profile-hue), 100%, 95%);
+    --profile-links-border: solid hsl(var(--profile-hue), 100%, 20%) 0.01rem;
+    --profile-links-background: linear-gradient(to right,hsl(var(--profile-hue), 100%, 85%), hsla(0, 0%, 0%, 0));
+    --profile-links-svg-fill: hsl(var(--profile-hue), 100%, 35%);
+    --profile-links-background-hover: linear-gradient(to right, hsl(var(--profile-hue-hover), 100%, 60%),hsl(var(--profile-hue), 100%, 95%));
+    --profile-links-svg-fill-hover: hsl(var(--profile-hue), 100%, 0%);
+    --profile-links-text-color-hover: hsl(var(--profile-hue), 100%, 0%);
+    /* END */
 }
 
 [theme = 'dark'] {
@@ -19,6 +32,17 @@
 
     --dark-border-normal: solid 0.01rem var(--dark-text-color);
     --dark-border-accent: solid 0.01rem var(--dark-accent-color);
+
+    /* Profile_public */
+    --profile-background: hsl(var(--profile-hue), 5%, 10%);
+    --profile-links-border: solid hsl(var(--profile-hue), 100%, 25%) 0.01rem;
+    --profile-links-background: linear-gradient(to right,hsl(var(--profile-hue), 100%, 2%), hsla(0, 0%, 0%, 0));
+    --profile-links-svg-fill: hsl(var(--profile-hue), 100%, 40%);
+    --profile-links-background-hover: linear-gradient(to right, hsl(var(--profile-hue), 50%, 15%),hsl(var(--profile-hue), 10%, 5%));
+    --profile-links-background-hover: linear-gradient(to right,hsl(var(--profile-hue), 4%, 20%), hsl(var(--profile-hue-hover), 0%, 20%));
+    --profile-links-svg-fill-hover: hsl(var(--profile-hue), 100%, 50%);
+    --profile-links-text-color-hover: hsl(var(--profile-hue), 100%, 100%);
+    /* END */
 }
 
 * {
@@ -204,6 +228,7 @@ form > div:first-of-type > span label {
     width: min(100%, 60rem);
     border: var(--dark-border-normal, var(--border-normal));
     border-radius: var(--border-radius);
+    background: var(--profile-background);
 }
 
 .profile_images {
@@ -248,6 +273,7 @@ form > div:first-of-type > span label {
     object-fit: cover;
     object-position: center;
     border-radius: inherit;
+    border: solid var(--profile-background) 0.25rem;
 }
 
 .profile  .about {
@@ -260,4 +286,53 @@ form > div:first-of-type > span label {
 .profile .about p {
     padding: 0.25rem;
     text-indent: 1rem;
+}
+
+.profile .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.profile .links > a {
+    text-decoration: none;
+    color: inherit;
+    width: min(30rem, 100%);
+    border: var(--profile-links-border);
+    border-radius: var(--border-radius);
+    transition: all ease-in-out 0.2s;
+    background: var(--profile-links-background);
+}
+
+.profile .links > a > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile .links > a > div > div:first-of-type {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+}
+
+.profile .links > a > div > div svg {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    fill: var(--profile-links-svg-fill);
+}
+
+.profile .links > a:hover {
+    transform: scale(1.05);
+    color: var(--profile-links-text-color-hover);
+    background: var(--profile-links-background-hover);
+}
+
+.profile .links > a > div:hover svg {
+    fill: var(--profile-links-svg-fill-hover);
 }
