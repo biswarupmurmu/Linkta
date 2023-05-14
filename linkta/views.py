@@ -40,7 +40,6 @@ def profile_edit():
         new_lname = request.form.get("lname")
         new_about = request.form.get("about")
         new_whoami = request.form.get("whoami")
-        public_view = request.form.get("public_view")
 
         if 'profile_picture' in request.files:
             profile_picture = request.files['profile_picture']
@@ -63,11 +62,92 @@ def profile_edit():
                 cover_picture.save(os.path.join(UPLOAD_FOLDER, cover_picture_name))
                 previous_cover_picture = g.user.cover_picture
                 g.user.cover_picture = cover_picture_name
+        
+        # Links
+        new_linkedin = request.form.get("linkedin").lower()
+        new_github = request.form.get("github").lower()
+        new_medium = request.form.get("medium").lower()
+        new_website = request.form.get("website").lower()
+        new_portfolio = request.form.get("portfolio").lower()
+        new_leetcode = request.form.get("leetcode").lower()
+        new_codechef = request.form.get("codechef").lower()
+        new_hackerrank = request.form.get("hackerrank").lower()
+        new_facebook = request.form.get("facebook").lower()
+        new_instagram = request.form.get("instagram").lower()
+        new_twitter = request.form.get("twitter").lower()
 
+        # Visibility settings
+        public_view = request.form.get("public_view")
         if public_view:
             public_view = True
         else:
             public_view = False
+
+        linkedin_view = request.form.get("linkedin_view")
+        if linkedin_view:
+            linkedin_view = True
+        else:
+            linkedin_view = False
+        
+        github_view = request.form.get("github_view")
+        if github_view:
+            github_view = True
+        else:
+            github_view = False
+
+        medium_view = request.form.get("medium_view")
+        if medium_view:
+            medium_view = True
+        else:
+            medium_view = False   
+
+        website_view = request.form.get("website_view")
+        if website_view:
+            website_view = True
+        else:
+            website_view = False            
+
+        portfolio_view = request.form.get("portfolio_view")
+        if portfolio_view:
+            portfolio_view = True
+        else:
+            portfolio_view = False
+
+        leetcode_view = request.form.get("leetcode_view")
+        if leetcode_view:
+            leetcode_view = True
+        else:
+            leetcode_view = False
+
+        codechef_view = request.form.get("codechef_view")
+        if codechef_view:
+            codechef_view = True
+        else:
+            codechef_view = False     
+
+        hackerrank_view = request.form.get("hackerrank_view")
+        if hackerrank_view:
+            hackerrank_view = True
+        else:
+            hackerrank_view = False
+
+        facebook_view = request.form.get("facebook_view")
+        if facebook_view:
+            facebook_view = True
+        else:
+            facebook_view = False
+
+        instagram_view = request.form.get("instagram_view")
+        if instagram_view:
+            instagram_view = True
+        else:
+            instagram_view = False
+
+        twitter_view = request.form.get("twitter_view")
+        if twitter_view:
+            twitter_view = True
+        else:
+            twitter_view = False
 
         username_exists = None
         if new_username != g.user.username:
@@ -81,8 +161,33 @@ def profile_edit():
         g.user.fname = new_fname
         g.user.lname = new_lname
         g.user.about = new_about
-        g.user.public_view = public_view
         g.user.whoami = new_whoami
+        # Links
+        g.user.linkedin = new_linkedin
+        g.user.github = new_github
+        g.user.medium = new_medium
+        g.user.website = new_website
+        g.user.portfolio = new_portfolio
+        g.user.leetcode = new_leetcode
+        g.user.codechef = new_codechef
+        g.user.hackerrank = new_hackerrank
+        g.user.facebook = new_facebook
+        g.user.instagram = new_instagram
+        g.user.twitter = new_twitter
+        # visibility settings
+        g.user.public_view = public_view
+        g.user.linkedin_view = linkedin_view
+        g.user.github_view = github_view
+        g.user.medium_view = medium_view
+        g.user.website_view = website_view
+        g.user.portfolio_view = portfolio_view
+        g.user.leetcode_view = leetcode_view
+        g.user.codechef_view = codechef_view
+        g.user.hackerrank_view = hackerrank_view
+        g.user.facebook_view = facebook_view
+        g.user.instagram_view = instagram_view
+        g.user.twitter_view = twitter_view
+        # Update
         db.session.commit()
 
         # Delete previous profile picture

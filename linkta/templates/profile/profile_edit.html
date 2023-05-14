@@ -32,6 +32,41 @@
             
             <label for="cover_picture">New cover picture</label>
             <input type=file name="cover_picture">
+
+            <h4>Links</h4>
+
+            <label for="linkedin">Linkedin</label>
+            <input type="url" name="linkedin" id="linkedin" placeholder="Enter profile url" value="{{user.linkedin}}">
+
+            <label for="github">Github</label>
+            <input type="url" name="github" id="github" placeholder="Enter profile url" value="{{user.github}}">
+
+            <label for="medium">Medium</label>
+            <input type="url" name="medium" id="medium" placeholder="Enter profile url" value="{{user.medium}}">
+
+            <label for="website">Website</label>
+            <input type="url" name="website" id="website" placeholder="Enter profile url" value="{{user.website}}">
+
+            <label for="portfolio">Portfolio</label>
+            <input type="url" name="portfolio" id="portfolio" placeholder="Enter profile url" value="{{user.portfolio}}">
+
+            <label for="leetcode">Leetcode</label>
+            <input type="url" name="leetcode" id="leetcode" placeholder="Enter profile url" value="{{user.leetcode}}">
+
+            <label for="codechef">Codechef</label>
+            <input type="url" name="codechef" id="codechef" placeholder="Enter profile url" value="{{user.codechef}}">
+
+            <label for="hackerrank">Hackerrank</label>
+            <input type="url" name="hackerrank" id="hackerrank" placeholder="Enter profile url" value="{{user.hackerrank}}">
+
+            <label for="facebook">Facebook</label>
+            <input type="url" name="facebook" id="facebook" placeholder="Enter profile url" value="{{user.facebook}}">
+
+            <label for="instagram">Instagram</label>
+            <input type="url" name="instagram" id="instagram" placeholder="Enter profile url" value="{{user.instagram}}">
+
+            <label for="twitter">Twitter</label>
+            <input type="url" name="twitter" id="twitter" placeholder="Enter profile url" value="{{user.twitter}}">
             
             <h4>Visibility settings</h4>
 
@@ -44,6 +79,138 @@
             <div>
                 <p>Show Profile</p>
                 <input type="checkbox" name="public_view" id="public_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.linkedin_view%}
+            <div>
+                <p>Linkedin</p>
+                <input type="checkbox" name="linkedin_view" id="linkedin_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Linkedin</p>
+                <input type="checkbox" name="linkedin_view" id="linked_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.github_view%}
+            <div>
+                <p>Github</p>
+                <input type="checkbox" name="github_view" id="github_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Github</p>
+                <input type="checkbox" name="github_view" id="github_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.medium_view%}
+            <div>
+                <p>Medium</p>
+                <input type="checkbox" name="medium_view" id="medium_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Medium</p>
+                <input type="checkbox" name="medium_view" id="medium_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.website_view%}
+            <div>
+                <p>Website</p>
+                <input type="checkbox" name="website_view" id="website_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Website</p>
+                <input type="checkbox" name="website_view" id="website_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.portfolio_view%}
+            <div>
+                <p>Portfolio</p>
+                <input type="checkbox" name="portfolio_view" id="portfolio_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Portfolio</p>
+                <input type="checkbox" name="portfolio_view" id="portfolio_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.leetcode_view%}
+            <div>
+                <p>Leetcode</p>
+                <input type="checkbox" name="leetcode_view" id="leetcode_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Leetcode</p>
+                <input type="checkbox" name="leetcode_view" id="leetcode_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.codechef_view%}
+            <div>
+                <p>Codechef</p>
+                <input type="checkbox" name="codechef_view" id="codechef_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Codechef</p>
+                <input type="checkbox" name="codechef_view" id="codechef_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.hackerrank_view%}
+            <div>
+                <p>Hackerrank</p>
+                <input type="checkbox" name="hackerrank_view" id="hackerrank_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Hackerrank</p>
+                <input type="checkbox" name="hackerrank_view" id="hackerrank_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.facebook_view%}
+            <div>
+                <p>Facebook</p>
+                <input type="checkbox" name="facebook_view" id="facebook_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Facebook</p>
+                <input type="checkbox" name="facebook_view" id="facebook_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.instagram_view%}
+            <div>
+                <p>Instagram</p>
+                <input type="checkbox" name="instagram_view" id="instagram_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Instagram</p>
+                <input type="checkbox" name="instagram_view" id="instagram_view" value= 'True'>
+            </div>
+            {% endif %}
+
+            {% if user.twitter_view%}
+            <div>
+                <p>Twitter</p>
+                <input type="checkbox" name="twitter_view" id="twitter_view" value= 'True' checked>
+            </div>
+            {% else %}
+            <div>
+                <p>Twitter</p>
+                <input type="checkbox" name="twitter_view" id="twitter_view" value= 'True'>
             </div>
             {% endif %}
         </div>
